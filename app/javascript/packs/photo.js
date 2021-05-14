@@ -40,16 +40,36 @@ for (let i = 0; i < figures.length; i++) {
 
 const addPhotoButton = document.querySelector("#add-photo");
 addPhotoButton.addEventListener("click", () => {
-  const modal = document.querySelector("#modal-container");
+  const modal = document.querySelector("#modal-add-container");
   modal.style.display = "block";
 
   const body = document.querySelector("body");
   body.style.overflow = "hidden";
 });
 
-const cancelModalButton = document.querySelector("#cancel-modal");
+const cancelModalButton = document.querySelector("#cancel-add-modal");
 cancelModalButton.addEventListener("click", () => {
-  const modal = document.querySelector("#modal-container");
+  const modal = document.querySelector("#modal-add-container");
+  modal.style.display = "none";
+
+  const body = document.querySelector("body");
+  body.style.overflow = null;
+});
+
+const deletePhotoButtons = document.querySelectorAll(".figure-button");
+for (let i = 0; i < deletePhotoButtons.length; i++) {
+  deletePhotoButtons[i].addEventListener("click", () => {
+    const modal = document.querySelector("#modal-delete-container");
+    modal.style.display = "block";
+
+    const body = document.querySelector("body");
+    body.style.overflow = "hidden";
+  });
+}
+
+const cancelDeleteButton = document.querySelector("#cancel-delete-modal");
+cancelDeleteButton.addEventListener("click", () => {
+  const modal = document.querySelector("#modal-delete-container");
   modal.style.display = "none";
 
   const body = document.querySelector("body");
