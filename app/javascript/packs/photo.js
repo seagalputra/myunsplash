@@ -37,3 +37,21 @@ for (let i = 0; i < figures.length; i++) {
     toggleDisplay(photoButton, "none");
   });
 }
+
+const addPhotoButton = document.querySelector("#add-photo");
+addPhotoButton.addEventListener("click", () => {
+  const modal = document.querySelector("#modal-container");
+  modal.style.display = "block";
+
+  const body = document.querySelector("body");
+  body.style.overflow = "hidden";
+});
+
+const cancelModalButton = document.querySelector("#cancel-modal");
+cancelModalButton.addEventListener("click", () => {
+  const modal = document.querySelector("#modal-container");
+  modal.style.display = "none";
+
+  const body = document.querySelector("body");
+  body.style.overflow = null;
+});
