@@ -1,0 +1,64 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+.grid-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-content::after {
+  content: "";
+  flex-grow: 999999999;
+}
+
+.grid-content > figure {
+  margin: 16px;
+  position: relative;
+}
+
+.grid-content > figure:hover {
+  border-radius: 16px;
+  background: #000000;
+  cursor: pointer;
+}
+
+.grid-content > figure > i {
+  display: block;
+}
+
+.grid-content > figure > img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  vertical-align: bottom;
+  border-radius: 16px;
+}
+
+.grid-content > figure > img:hover {
+  opacity: 0.38;
+}
+
+.grid-content > figure > .figure-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  padding: 0 24px 32px 24px;
+}
+
+.grid-content > figure > .figure-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #eb5757;
+  border: 1px solid #eb5757;
+  border-radius: 38px;
+  padding: 5px 16px;
+  margin: 18px 18px 0 18px;
+}
+
+@import "tailwindcss/utilities";

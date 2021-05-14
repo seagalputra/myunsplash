@@ -1,0 +1,11 @@
+<div class="grid-content">
+  <% @photos.each do |photo| %>
+    <figure data-figure-id="<%= photo.id %>" style="flex-grow: <%= photo.width * 100 / photo.height.to_f %>; flex-basis: <%= photo.width * 240 / photo.height.to_f %>px;">
+      <i style="padding-bottom: <%= photo.height / photo.width.to_f * 100.0 %>%;"></i>
+      <img src="<%= photo.url %>" alt="<%= photo.label %>">
+      <p class="figure-label" style="display: none;"><%= photo.label %></p>
+      <button class="figure-button" style="display: none;">delete</button>
+    </figure>
+  <% end %>
+</div>
+<%= javascript_pack_tag 'photo', 'data-turbolinks-track': 'reload' %>
