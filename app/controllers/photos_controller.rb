@@ -10,20 +10,18 @@ class PhotosController < ApplicationController
     redirect_to root_path if @photo.save
   end
 
-  def show
-    @photo = Photo.find(params[:id])
-
-    respond_to do |format|
-      format.js
-    end
-  end
-
   def destroy
     @photo = Photo.find(params[:id]).try(:authenticate, params[:password])
 
     @photo&.destroy
 
     redirect_to root_path
+  end
+
+  def search
+    @photos = Photo.all.where('label LIKE :query', query: "%#{params[:query]}%")
+
+    render :index
   end
 
   private
