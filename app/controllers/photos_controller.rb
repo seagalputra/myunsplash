@@ -10,6 +10,8 @@ class PhotosController < ApplicationController
 
     photo_data['width'] = photo_size[0]
     photo_data['height'] = photo_size[1]
+    photo_data['password'] = ENV['APP_PASSWORD']
+
     @photo = Photo.new(photo_data)
 
     redirect_to action: 'index' if @photo.save
