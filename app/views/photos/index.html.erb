@@ -1,34 +1,5 @@
-<div id="modal-add-container" style="display: none;">
-  <div class="flex flex-col rounded-xl gap-4 px-8 py-5 absolute z-50 bg-white w-1/2 top-1/4 left-1/4">
-    <h1 class="font-medium text-2xl">Add a new photo</h1>
-    <%= form_with url: "/photos", model: @photo, class: "flex flex-col mt-4" do |form| %>
-      <%= form.label :label, "Label", class: "mb-2", style: "color: #4F4F4F;" %>
-      <%= form.text_field :label, class: "border rounded-xl p-4 border-gray-500", style: "filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));" %>
-      <%= form.label :url, "Photo URL", class: "mt-6 mb-2", style: "color: #4F4F4F;" %>
-      <%= form.text_field :url, class: "border rounded-xl p-4 border-gray-500", style: "filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));" %>
-
-      <div class="flex flex-row-reverse gap-6 mt-6">
-        <%= form.submit "Submit", class: "py-4 px-8 rounded-xl text-white font-bold text-base cursor-pointer", style: "background: #3DB46D;" %>
-        <button id="cancel-add-modal" type="button" class="font-medium text-base" style="color: #BDBDBD;">Cancel</button>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<div id="modal-delete-container" style="display: none;">
-  <div class="flex flex-col rounded-xl gap-4 px-8 py-5 absolute z-50 bg-white w-1/2 top-1/4 left-1/4">
-    <h1 class="font-medium text-2xl">Are you sure?</h1>
-    <%= form_with url: "/photos", model: @photo, class: "flex flex-col mt-4" do |form| %>
-      <%= form.label :password, "Password", class: "mb-2", style: "color: #4F4F4F;" %>
-      <%= form.text_field :password, class: "border rounded-xl p-4 border-gray-500", style: "filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));" %>
-
-      <div class="flex flex-row-reverse gap-6 mt-6">
-        <%= form.submit "Delete", class: "py-4 px-8 rounded-xl text-white font-bold text-base cursor-pointer", style: "background: #EB5757;" %>
-        <button id="cancel-delete-modal" type="button" class="font-medium text-base" style="color: #BDBDBD;">Cancel</button>
-      </div>
-    <% end %>
-  </div>
-</div>
+<%= render 'add_modal' %>
+<%= render 'delete_modal' %>
 
 <div class="grid-content">
   <% @photos.each do |photo| %>
