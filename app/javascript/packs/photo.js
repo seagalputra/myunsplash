@@ -19,6 +19,17 @@ for (let i = 0; i < figures.length; i++) {
       `figure[data-figure-id='${figureId}']>.figure-button`
     );
     toggleDisplay(photoButton, "block");
+
+    photoButton.addEventListener("click", () => {
+      const modal = document.querySelector("#modal-delete-container");
+      modal.style.display = "block";
+
+      const deleteForm = modal.querySelector("form");
+      deleteForm.setAttribute("action", `/photos/${figureId}`);
+
+      const body = document.querySelector("body");
+      body.style.overflow = "hidden";
+    });
   });
 
   figures[i].addEventListener("mouseleave", (event) => {
@@ -55,17 +66,6 @@ cancelModalButton.addEventListener("click", () => {
   const body = document.querySelector("body");
   body.style.overflow = null;
 });
-
-const deletePhotoButtons = document.querySelectorAll(".figure-button");
-for (let i = 0; i < deletePhotoButtons.length; i++) {
-  deletePhotoButtons[i].addEventListener("click", () => {
-    const modal = document.querySelector("#modal-delete-container");
-    modal.style.display = "block";
-
-    const body = document.querySelector("body");
-    body.style.overflow = "hidden";
-  });
-}
 
 const cancelDeleteButton = document.querySelector("#cancel-delete-modal");
 cancelDeleteButton.addEventListener("click", () => {
